@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ჩემი პროექტები</title>
+</head>
+<body>
+<%- include('partials/navbar') %>
+
+<div style="padding:20px;">
+    <h1>ჩემი პროექტები</h1>
+
+    <table border="1" cellpadding="10" style="border-collapse:collapse;">
+        <tr style="background:#eee;">
+            <th>#</th>
+            <th>პროექტის სახელი</th>
+            <th>ტექნოლოგია</th>
+            <th>სტატუსი</th>
+        </tr>
+
+        <% projects.forEach(function(project) { %>
+            <tr>
+                <td><%= project.id %></td>
+                <td><%= project.name %></td>
+                <td><%= project.tech %></td>
+                <td>
+                    <% if (project.completed) { %>
+                        ✅ დასრულებული
+                    <% } else { %>
+                        ⏳ მიმდინარე
+                    <% } %>
+                </td>
+            </tr>
+        <% }); %>
+    </table>
+</div>
+
+<%- include('partials/footer') %>
+</body>
+</html>
